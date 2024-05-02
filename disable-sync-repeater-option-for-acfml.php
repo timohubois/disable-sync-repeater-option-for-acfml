@@ -36,11 +36,11 @@ add_action('add_meta_boxes', function (): void {
 
     global $pagenow;
     $metaBoxId = \ACFML\Repeater\Sync\CheckboxUI::META_BOX_ID;
-    $isRepeaterDisplayOnPostEdit = isset($pagenow) && 'post.php' === $pagenow;
+    $isOnPostEdit = isset($pagenow) && 'post.php' === $pagenow;
     $screen = get_current_screen();
     $postType = $screen->post_type ?? null;
 
-    if (!$isRepeaterDisplayOnPostEdit || $postType === null) {
+    if (!$isOnPostEdit || $postType === null) {
         return;
     }
 
