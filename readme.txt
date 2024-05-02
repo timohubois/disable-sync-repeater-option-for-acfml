@@ -29,7 +29,7 @@ Check out the Plugin [GitHub Repository](https://github.com/timohubois/disable-s
 (recommended)
 
 1. Open **Plugins > Add new**
-2. Search for **Post Type and Taxonomy Archive Pages**
+2. Search for **Disable Sync Repeater Option for ACFML**
 3. Click **install and activate** the plugin
 
 = INSTALL MANUALLY THROUGH FTP =
