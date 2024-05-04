@@ -2,7 +2,7 @@
 
 ACFML introduces a feature that allows users to sync repeater fields across translations.
 
-In combination flexible content fields and when the content should vary per language and it can lead to unexpected behavior, so that this plugin does the following:
+In combination flexible content fields and when the content should vary per language, it can lead to unexpected behavior, so that this plugin does the following:
 
 1. Define a constant that sets the default value for the repeater sync checkbox.
 2. Remove the meta box that displays the repeater sync checkbox in the post edit screen.
