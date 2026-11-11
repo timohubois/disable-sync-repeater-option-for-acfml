@@ -24,12 +24,6 @@ In combination with flexible content fields and when the content should vary per
 2. Perform [Installation](#installation).
 3. Run `composer i` to install composer dependency.
 
-## Listing assets
-
-WordPress.org listing assets live in [.wordpress-org/](.wordpress-org/) and are excluded from plugin ZIPs. The two PNG banners and genuine vector icon with PNG fallbacks follow the [official asset requirements](https://developer.wordpress.org/plugins/wordpress-org/plugin-assets/).
-
-The banner is an annotated illustration based on an existing backend capture, not a new runtime screenshot. The existing WPML and ACF logos identify the integrations and remain the property of their respective owners; they do not imply endorsement.
-
 ## License
 
 GPLv3
