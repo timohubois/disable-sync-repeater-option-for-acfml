@@ -51,7 +51,11 @@ add_action('add_meta_boxes', function (): void {
 * Delete the option that stores the sync status.
 */
 add_action('plugins_loaded', function (): void {
-    if (!is_admin() || !class_exists('ACFML\Repeater\Sync\CheckboxOption') || !defined('ACFML\Repeater\Sync\CheckboxOption::SYNCHRONISE_WP_OPTION_NAME')) {
+    if (
+        !is_admin()
+        || !class_exists('ACFML\Repeater\Sync\CheckboxOption')
+        || !defined('ACFML\Repeater\Sync\CheckboxOption::SYNCHRONISE_WP_OPTION_NAME')
+    ) {
         return;
     }
 
