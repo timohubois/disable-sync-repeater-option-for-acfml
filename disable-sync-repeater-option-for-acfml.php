@@ -4,7 +4,7 @@
  * Plugin Name:       Disable Sync Repeater Option for ACFML
  * Plugin URI:        https://github.com/timohubois/disable-sync-repeater-option-for-acfml/
  * Description:       Disables the sync repeater option of ACFML.
- * Version:           1.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      8.0
  * Author:            Timo Hubois

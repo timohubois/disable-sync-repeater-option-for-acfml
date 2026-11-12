@@ -3,7 +3,7 @@ Contributors: timohubois
 Tags: acfml, wpml, acf
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.0
+Stable tag: 1.0.1
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -75,5 +75,10 @@ This is an add-on, not a standalone translation plugin. Without the expected ACF
 Report issues or contribute through the [GitHub repository](https://github.com/timohubois/disable-sync-repeater-option-for-acfml/). For compatibility reports, include your WordPress, PHP, WPML, ACFML, and ACF versions and the steps to reproduce, without private site data.
 
 == Changelog ==
+= 1.0.1 =
+* Raise the minimum supported WordPress version from 5.0 to 6.0 and align plugin metadata with the documentation.
+* Clarify setup, requirements, behavior, limitations, and deactivation guidance.
+* Refine development code-quality checks and formatting. Repeater-sync behavior is unchanged.
+
 = 1.0 =
 * Initial Release
