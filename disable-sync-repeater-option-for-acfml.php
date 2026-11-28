@@ -50,6 +50,41 @@ add_filter('pre_option_' . DSRO_ACFML_OPTION_NAME, 'dsroAcfmlDisableSyncOption',
 add_filter('pre_update_option_' . DSRO_ACFML_OPTION_NAME, 'dsroAcfmlDisableSyncOption', 0);
 
 /**
+ * Return the enforced value from ACFML's repeater-sync REST endpoint.
+ *
+ * @param mixed           $response REST response.
+ * @param mixed           $handler  Matched route handler.
+ * @param WP_REST_Request $request  Current REST request.
+ *
+ * @return mixed
+ */
+function dsroAcfmlEnforceRestResponse(
+    mixed $response,
+    mixed $handler,
+    WP_REST_Request $request
+): mixed {
+    if (
+        '/acfml/v1/repeater-sync' !== $request->get_route()
+        || 'POST' !== $request->get_method()
+        || is_wp_error($response)
+    ) {
+        return $response;
+    }
+
+    $response = rest_ensure_response($response);
+    $data = $response->get_data();
+
+    if (is_array($data)) {
+        $data['enabled'] = false;
+        $response->set_data($data);
+    }
+
+    return $response;
+}
+
+add_filter('rest_request_after_callbacks', 'dsroAcfmlEnforceRestResponse', PHP_INT_MAX, 3);
+
+/**
  * Delete choices saved before the plugin was activated.
  */
 function dsroAcfmlActivate(): void
