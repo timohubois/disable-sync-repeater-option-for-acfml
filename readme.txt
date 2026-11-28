@@ -3,7 +3,7 @@ Contributors: timohubois
 Tags: acfml, wpml, acf
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.1.0
+Stable tag: 1.0.1
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -68,9 +68,6 @@ Report issues or contribute on [GitHub](https://github.com/timohubois/disable-sy
 
 == Changelog ==
 
-= 1.1.0 =
-* Keep ACFML's optional repeater sync choice off across supported editors and saves, and clear saved preferences on activation.
-
 = 1.0.1 =
 * Raise the minimum supported WordPress version from 5.0 to 6.0. Repeater-sync behavior is unchanged.
 
@@ -78,9 +75,6 @@ Report issues or contribute on [GitHub](https://github.com/timohubois/disable-sy
 * Initial release.
 
 == Upgrade Notice ==
-
-= 1.1.0 =
-Requires ACFML 2.0.0 or later. The optional sync choice stays off while the plugin is active. Activation clears saved preferences; deactivation does not restore them.
 
 = 1.0.1 =
 Requires WordPress 6.0 or later. Repeater-sync behavior is unchanged.

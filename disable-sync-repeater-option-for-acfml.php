@@ -4,7 +4,7 @@
  * Plugin Name:       Disable Sync Repeater Option for ACFML
  * Plugin URI:        https://github.com/timohubois/disable-sync-repeater-option-for-acfml/
  * Description:       Disables the sync repeater option of ACFML.
- * Version:           1.1.0
+ * Version:           1.0.1
  * Requires at least: 6.0
  * Requires PHP:      8.0
  * Author:            Timo Hubois
@@ -17,7 +17,6 @@
 
 defined('ABSPATH') || exit;
 
-const DSRO_ACFML_VERSION = '1.1.0';
 const DSRO_ACFML_OPTION_NAME = 'acfml_synchronise_repeater_fields';
 const DSRO_ACFML_CHECKBOX_NAME = 'wpml_synchronise_acf_fields_translations';
 const DSRO_ACFML_NONCE_NAME = 'wpml_synchronise_acf_fields_translations_nonce';
@@ -141,7 +140,7 @@ add_action('acf/input/admin_head', 'dsroAcfmlRemoveOptionsMetaBox', 10);
  */
 function dsroAcfmlEnqueueAdminStyles(): void
 {
-    wp_register_style(DSRO_ACFML_STYLE_HANDLE, false, [], DSRO_ACFML_VERSION);
+    wp_register_style(DSRO_ACFML_STYLE_HANDLE, false, [], null);
     wp_enqueue_style(DSRO_ACFML_STYLE_HANDLE);
     wp_add_inline_style(
         DSRO_ACFML_STYLE_HANDLE,
