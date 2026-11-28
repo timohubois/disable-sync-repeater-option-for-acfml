@@ -1,12 +1,12 @@
 # Disable Sync Repeater Option for ACFML (WPML/ACF)
 
-Disable Sync Repeater Option for ACFML (WPML/ACF) turns off ACFML's repeater sync option for multilingual sites where layouts need to vary by language. It sets the default to false, removes the checkbox from existing-post edit screens and clears the saved sync preference during admin requests.
+Disable Sync Repeater Option for ACFML (WPML/ACF) turns off ACFML's repeater sync option for multilingual sites where layouts need to vary by language. It keeps the optional choice off across supported editor and save paths and hides the related controls.
 
 ## Requirements
 
 - WordPress 6.0 or later.
 - PHP 8.0 or later.
-- WPML, its ACFML add-on, and ACF with support for the field types you use. Repeater and flexible content fields require ACF PRO.
+- ACFML 2.0.0 or later, a compatible version of WPML, and ACF with support for the field types you use. Repeater and flexible content fields require ACF PRO.
 
 Follow [ACFML's setup and dependency guidance](https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/) for compatible versions. These plugins and their licenses are not included.
 
@@ -22,15 +22,15 @@ There is no additional settings screen. Composer is not required to run the plug
 
 ## Behavior and limitations
 
-- `ACFML_REPEATER_SYNC_DEFAULT` is set to `false` only if it has not already been defined.
-- Meta box removal targets existing-post edit screens (`post.php`), not the new-post screen.
-- The saved sync preference is cleared site-wide during admin requests when the expected ACFML classes are available.
-- Field translation preferences, WPML translation editors and other integrations still control their own synchronization behavior.
+- `ACFML_REPEATER_SYNC_DEFAULT` is set to `false` only if it has not already been defined. If it is defined as `true`, ACFML can still default to sync.
+- The plugin hides the related editor controls and keeps the optional sync choice off during supported saves, including classic forms and block-editor REST requests.
+- Activation clears the current site's saved sync preferences. Updating while active leaves stored preferences in place but ignores them until the plugin is deactivated.
+- ACFML field-group modes, field translation preferences, WPML translation editors and other integrations still control their own synchronization behavior.
 - Existing posts and ACF field values are not edited directly. Earlier synchronization is not undone, and previously changed layouts are not restored.
 
-The integration relies on ACFML's internal classes and constants. Verify compatibility with your installed versions and load order on staging. Without the expected classes, meta box removal and preference cleanup are skipped.
+Verify compatibility with your installed versions on staging.
 
-To re-enable ACFML's control, deactivate the plugin and review the desired setting in ACFML. The deleted preference is not restored automatically.
+To re-enable ACFML's control, deactivate the plugin and review the desired setting in ACFML. Deactivation does not restore preferences cleared on activation.
 
 ## Development
 
