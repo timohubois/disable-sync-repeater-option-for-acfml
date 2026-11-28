@@ -126,14 +126,14 @@ function dsroAcfmlRemovePostMetaBox(): void
 add_action('add_meta_boxes', 'dsroAcfmlRemovePostMetaBox', 11);
 
 /**
- * Remove ACFML's ACF options-page meta box after ACFML adds it.
+ * Remove ACFML's options-page meta box after ACFML verifies the registered boxes.
  */
 function dsroAcfmlRemoveOptionsMetaBox(): void
 {
     remove_meta_box(DSRO_ACFML_META_BOX_ID, 'acf_options_page', 'normal');
 }
 
-add_action('acf/input/admin_head', 'dsroAcfmlRemoveOptionsMetaBox', 10);
+add_action('acf/input/admin_head', 'dsroAcfmlRemoveOptionsMetaBox', 12);
 
 /**
  * Hide remaining ACFML controls, including taxonomy and block-editor UI.

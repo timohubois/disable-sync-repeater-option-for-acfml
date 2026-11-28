@@ -53,7 +53,7 @@ Before editing existing translations, back up the content. Save and reopen one t
 
 = Can I re-enable the repeater sync option? =
 
-Deactivate this plugin to let ACFML control repeater synchronization again. Activation clears saved sync preferences, and deactivation does not restore them; choose and save the desired setting in ACFML.
+Deactivate this plugin to let ACFML control repeater synchronization again, then review the setting in ACFML. Activation clears the current site's saved sync preferences; deactivation does not restore them. Updating while active ignores any stored preferences without clearing them, so those preferences can take effect again after deactivation.
 
 = Why is the checkbox still visible or synchronization still happening? =
 

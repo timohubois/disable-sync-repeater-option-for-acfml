@@ -24,7 +24,7 @@ There is no additional settings screen. Composer is not required to run the plug
 
 - `ACFML_REPEATER_SYNC_DEFAULT` is set to `false` only if it has not already been defined. If it is defined as `true`, ACFML can still default to sync.
 - The plugin hides the related editor controls and keeps the optional sync choice off during supported saves, including classic forms and block-editor REST requests.
-- Activation clears previously saved sync preferences.
+- Activation clears the current site's saved sync preferences. Updating while active leaves stored preferences in place but ignores them until the plugin is deactivated.
 - ACFML field-group modes, field translation preferences, WPML translation editors and other integrations still control their own synchronization behavior.
 - Existing posts and ACF field values are not edited directly. Earlier synchronization is not undone, and previously changed layouts are not restored.
 
