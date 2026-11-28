@@ -3,81 +3,59 @@ Contributors: timohubois
 Tags: acfml, wpml, acf
 Requires at least: 6.0
 Tested up to: 7.1
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 Requires PHP: 8.0
 License: GPLv3 or later
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Turn off ACFML's repeater sync option for multilingual sites where layouts need to vary by language.
+Let translations use different ACF repeater rows or flexible content layouts by turning off ACFML's optional repeater sync.
 
 == Description ==
 
-Use this plugin when translated pages need a different order of Repeater rows or different Flexible Content layouts from the default language.
+ACFML can keep repeater rows and flexible content layouts in the same order as the default language. This plugin turns that optional synchronization off across classic editors, the block editor, taxonomy terms and ACF options pages. It also removes the related controls and clears previously saved choices when activated.
 
-[Advanced Custom Fields Multilingual (ACFML)](https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/) connects WPML with Advanced Custom Fields. Its repeater sync option synchronizes the order of Repeater rows and Flexible Content layouts with the default language. This plugin sets that option to off by default and hides its checkbox on existing-post edit screens.
-
-The change applies site-wide. It does not change field translation rules or WPML's translation-editor settings.
-
-**Requirements**
-
-* WordPress 6.0 or later and PHP 8.0 or later.
-* WPML, its ACFML add-on, and ACF with support for the field types you use.
-* ACF PRO for repeater and flexible content fields.
-
-The required plugins and their licenses are not included.
+The plugin does not change ACF field translation settings or WPML translation-editor settings. You need ACFML 2.0.0 or later, a compatible version of WPML, and ACF PRO. Follow [WPML's ACFML setup guide](https://wpml.org/documentation/translating-your-contents/acf/) before activating this plugin.
 
 == Installation ==
 
-1. Install and configure WPML, ACFML and ACF. Follow [ACFML's setup and dependency guidance](https://wpml.org/documentation/related-projects/translate-sites-built-with-acf/) for your versions.
-2. Under **Plugins > Add New**, search for **Disable Sync Repeater Option for ACFML (WPML/ACF)**, then install and activate it. Alternatively, upload the disable-sync-repeater-option-for-acfml folder to /wp-content/plugins/ and activate it under **Plugins**.
-
-There is no settings page.
+1. Back up the site and try the plugin on staging before activating it on your live site.
+2. In **Plugins > Add New**, search for **Disable Sync Repeater Option for ACFML (WPML/ACF)**, then install and activate it. If you downloaded the ZIP, use **Upload Plugin** instead.
+3. Save and reopen a test translation to check that its layout stays as intended. There is no separate settings page.
 
 == Frequently Asked Questions ==
 
 = Does this disable every kind of ACF field synchronization? =
 
-No. It targets ACFML's repeater sync checkbox and saved preference. Field translation preferences, WPML translation editors and other integrations can still affect synchronization.
+No. It disables ACFML's optional repeater-sync choice. ACFML field-group modes, field translation preferences, WPML translation editors and other integrations can still synchronize content.
 
-For field translation settings, see [WPML's guide to translating ACF repeater fields](https://wpml.org/documentation/translating-your-contents/acf/#repeater-and-flexible-content).
+= What happens to existing translations? =
 
-= Can I apply it to individual languages or field groups? =
+The plugin does not directly edit posts or field values, undo past synchronization, or restore prior layouts. Back up the content and verify your editing workflow on staging.
 
-No. While active, the plugin clears ACFML's saved site-wide sync preference during admin requests. There are no separate controls for individual users, posts, languages, field groups or post types.
+= Can I re-enable ACFML's repeater-sync controls? =
 
-= Will it change my existing translated content? =
+Deactivate this plugin and review the desired setting in ACFML. Choices deleted when the plugin was activated are not restored automatically.
 
-No. The plugin does not edit posts or ACF field values, undo earlier synchronization or restore layouts that were already changed.
+= Why is synchronization still happening? =
 
-Before editing existing translations, back up the content. Save and reopen one translation on staging to check whether other WPML settings still synchronize its fields.
+Check the ACFML field-group mode, individual field translation preferences and the WPML translation editor in use. Those settings are separate from the optional repeater-sync choice targeted by this plugin.
 
-= Can I re-enable the repeater sync option? =
-
-Deactivate this plugin to let ACFML control repeater synchronization again. The deleted sync preference is not restored automatically; choose and save the desired setting in ACFML.
-
-= Why is the checkbox still visible or synchronization still happening? =
-
-* Checkbox removal applies to existing-post edit screens (`post.php`), not the new-post screen.
-* `ACFML_REPEATER_SYNC_DEFAULT` is set to false only if it has not already been defined, even if ACFML is inactive. An existing definition is left unchanged. See the [ACFML constant reference](https://wpml.org/documentation/support/wpml-coding-api/wpml-constants/#acfml_repeater_sync_default).
-* Checkbox removal requires `ACFML\Repeater\Sync\CheckboxUI::META_BOX_ID`; clearing the saved preference requires `ACFML\Repeater\Sync\CheckboxOption::SYNCHRONISE_WP_OPTION_NAME`.
-
-If the expected classes or constants are unavailable when the hooks run, that action is skipped. Check that ACFML is active and loaded before those hooks run.
-
-If the checkbox is hidden but fields still synchronize, check ACFML's field translation preferences and the WPML translation editor being used.
-
-== Want to contribute? ==
-
-Report issues or contribute on [GitHub](https://github.com/timohubois/disable-sync-repeater-option-for-acfml/).
+If that does not explain what you are seeing, [report an issue on GitHub](https://github.com/timohubois/disable-sync-repeater-option-for-acfml/issues) with the WordPress, PHP, WPML, ACFML and ACF versions involved.
 
 == Changelog ==
 
+= 1.1.0 =
+* Enforce the disabled repeater-sync choice across classic form saves and block-editor REST requests.
+* Remove the related controls from post, taxonomy and ACF options-page editors.
+* Require ACFML 2.0.0 or later.
+
 = 1.0.1 =
-* Raise the minimum supported WordPress version from 5.0 to 6.0. Repeater-sync behavior is unchanged.
+* Raise the minimum WordPress version from 5.0 to 6.0. Repeater-sync behavior is unchanged.
 
 = 1.0 =
 * Initial release.
 
 == Upgrade Notice ==
 
-= 1.0.1 =
-Requires WordPress 6.0 or later. Repeater-sync behavior is unchanged.
+= 1.1.0 =
+Repeater sync is now disabled across all supported ACFML editor surfaces. Requires ACFML 2.0.0 or later.
